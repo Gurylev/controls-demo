@@ -2,6 +2,7 @@
 using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using DynamicData;
+using MasterImpulse.Shell.Aui.ViewModels.RibbonTabsViewModel.MainTabsViewModel;
 
 namespace DemoCenter.ViewModels;
 
@@ -12,9 +13,16 @@ public partial class WordPadExampleViewModel : PageViewModelBase
 	[ObservableProperty] private string selectedFont;
 	[ObservableProperty] private int selectedSize;
 	[ObservableProperty] private ObservableCollection<FontStyleGalleryItem> fontStyles;
-	
-	public WordPadExampleViewModel()
+
+    [ObservableProperty]
+    public ObservableCollection<PageViewModelBase> cntlPages = [];
+
+
+    public WordPadExampleViewModel()
 	{
+		CntlPages.Add(new BuildTabViewModel());
+		CntlPages.Add(new DebuggingTabViewModel());
+
 		fonts = new ObservableCollection<string>();
 		fonts.AddRange(FontManager.Current.SystemFonts.Select(x => x.Name).OrderBy(x => x).ToList());
 		selectedFont = fonts.FirstOrDefault(f => f == "Arial");

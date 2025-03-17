@@ -1,0 +1,44 @@
+<tabs:BuildTabView
+	         xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 xmlns:mxb="https://schemas.eremexcontrols.net/avalonia/bars"
+			 xmlns:mxr="https://schemas.eremexcontrols.net/avalonia/ribbon"
+			 xmlns:icons="https://schemas.eremexcontrols.net/avalonia/icons"
+			 xmlns:mxe="https://schemas.eremexcontrols.net/avalonia/editors"
+			 xmlns:tabs="using:MasterImpulse.Shell.Aui.Views.RibbonTabsView.MainTabsView"
+             x:Class="MasterImpulse.Shell.Aui.Views.RibbonTabsView.MainTabsView.BuildTabView"
+			 Header="Сборка"
+			 IsSelected="{Binding IsSelected}">
+		<mxr:RibbonPageGroup Header="Настройка" IsHeaderButtonVisible="True">
+			<mxb:ToolbarEditorItem Header="Профиль"
+								   EditorWidth="150"
+								   EditorValue="{Binding CurrentBuildProfile, Mode=TwoWay}">
+				<mxb:ToolbarEditorItem.EditorProperties>
+					<mxe:ComboBoxEditorProperties ItemsSource="{Binding BuildProfiles}" />
+				</mxb:ToolbarEditorItem.EditorProperties>
+			</mxb:ToolbarEditorItem>
+		</mxr:RibbonPageGroup>
+		<mxr:RibbonPageGroup Header="Управление" IsHeaderButtonVisible="True">
+			<mxb:ToolbarButtonItem Header="Собрать"
+								   Command="{Binding BuildCommand}"
+								   Glyph="{x:Static icons:CAM.Drilling_Tools}">
+				<mxb:ToolbarButtonItem.DropDownControl>
+					<mxb:PopupMenu>
+						<mxb:ToolbarButtonItem Header="Пересобрать"
+											   Command="{Binding RebuildCommand}"
+											   Glyph="{x:Static icons:Basic.Parameters}" />
+					</mxb:PopupMenu>
+				</mxb:ToolbarButtonItem.DropDownControl>
+			</mxb:ToolbarButtonItem>
+			<mxb:ToolbarButtonItem Header="Программировать"
+								   Command="{Binding DownloadProjectToDeviceCommand}"
+								   Glyph="{x:Static icons:Basic.Window_Arrow_Right}" />
+			<mxb:ToolbarButtonItem Header="Очистить"
+								   Command="{Binding CleanCommand}"
+								   Glyph="{x:Static icons:Basic.Table_Clear}" />
+		</mxr:RibbonPageGroup>
+	
+</tabs:BuildTabView>

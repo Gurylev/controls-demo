@@ -1,0 +1,65 @@
+<tabs:DebuggingTabView
+	         xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 xmlns:mxb="https://schemas.eremexcontrols.net/avalonia/bars"
+			 xmlns:mxr="https://schemas.eremexcontrols.net/avalonia/ribbon"
+			 xmlns:icons="https://schemas.eremexcontrols.net/avalonia/icons"
+			 xmlns:mxe="https://schemas.eremexcontrols.net/avalonia/editors"
+			 xmlns:tabs="using:MasterImpulse.Shell.Aui.Views.RibbonTabsView.MainTabsView"
+             x:Class="MasterImpulse.Shell.Aui.Views.RibbonTabsView.MainTabsView.DebuggingTabView"
+			 Header="Отладка"
+			 IsSelected="{Binding IsSelected}">
+		<mxr:RibbonPageGroup Header="Режим">
+			<mxb:ToolbarButtonItem Header="Начать отладку"
+								   Command="{Binding StartDebuggingCommand}">
+				
+			</mxb:ToolbarButtonItem>
+			<mxb:ToolbarButtonItem Header="Остановить отладку"
+								   Command="{Binding StopDebuggingCommand}">
+				
+			</mxb:ToolbarButtonItem>
+		</mxr:RibbonPageGroup>
+		<mxr:RibbonPageGroup Header="Действия" IsHeaderButtonVisible="True">
+			<mxb:ToolbarButtonItem Header="Шаг с заходом"
+								   IsEnabled="False"
+								   Glyph="{x:Static icons:_12.Arrow_Down}" />
+			<mxb:ToolbarButtonItem Header="Шаг с обходом"
+								   IsEnabled="False"
+								   Glyph="{x:Static icons:_12.Import}" />
+		</mxr:RibbonPageGroup>
+		<mxr:RibbonPageGroup Header="Выполнение" IsHeaderButtonVisible="True">
+			<mxb:ToolbarButtonItem Header="Приостановить устройство"
+								   Command="{Binding PauseDevicesCommand}">
+				
+			</mxb:ToolbarButtonItem>
+			<mxb:ToolbarButtonItem Header="Продолжить выполнение"
+								   Command="{Binding ContinueDevicesCommand}">
+				
+			</mxb:ToolbarButtonItem>
+		</mxr:RibbonPageGroup>
+		<mxr:RibbonPageGroup Header="Запись значений" IsHeaderButtonVisible="True">
+			<mxb:ToolbarButtonItem Header="Сброс Force-флага"
+								   IsEnabled="{Binding IsDebuggingMode}"
+								   Command="{Binding ResetForceFlagToDevicesCommand}"
+								   Glyph="{x:Static icons:Basic.Lock_Open}" />
+			<mxb:ToolbarButtonItem Header="Применить изменения"
+								   IsEnabled="{Binding IsDebuggingMode}"
+								   Command="{Binding ApplyToDevicesCommand}"
+								   Glyph="{x:Static icons:Basic.Lock_Closed}" />
+		</mxr:RibbonPageGroup>
+		<mxr:RibbonPageGroup Header="Параметры">
+			<mxb:ToolbarCheckItem Header="Эмуляция ПЛК"
+								  IsEnabled="False"
+								  Glyph="{x:Static icons:Basic.Server_Error}"/>
+			<mxb:ToolbarButtonItem Header="Включить остановки"
+								   IsEnabled="False"
+								   Glyph="{x:Static icons:Basic.Add}"
+								   ShowSeparator="True"/>
+			<mxb:ToolbarButtonItem Header="Выключить остановки"
+								   IsEnabled="False"
+								   Glyph="{x:Static icons:Basic.Reduce}" />
+		</mxr:RibbonPageGroup>
+</tabs:DebuggingTabView>

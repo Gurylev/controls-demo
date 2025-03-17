@@ -27,7 +27,7 @@
         </DataTemplate>
     </UserControl.DataTemplates>
     <mxb:ToolbarManager IsWindowManager="True">
-        <mxr:RibbonControl ApplicationButtonContent="File" ApplicationButtonKeyTip="F">
+        <mxr:RibbonControl ApplicationButtonContent="File" PagesSource="{Binding CntlPages}" ApplicationButtonKeyTip="F">
             <mxr:RibbonControl.ApplicationButtonDropDownControl>
                 <mxb:PopupMenu MinWidth="250" ContentRightIndent="30">
                     <mxb:ToolbarButtonItem Header="New" Glyph="{x:Static icons:Basic.Doc}" GlyphSize="32,32" HotKey="Ctrl+N"/>
@@ -37,7 +37,7 @@
                     <mxb:ToolbarButtonItem Header="Exit" Glyph="{x:Static icons:Basic.Cancel}" ShowSeparator="True" GlyphSize="32,32"  HotKey="Ctrl+X"/>
                 </mxb:PopupMenu>
             </mxr:RibbonControl.ApplicationButtonDropDownControl>
-            <mxr:RibbonControl.QuickAccessToolbarItems>
+            <!--<mxr:RibbonControl.QuickAccessToolbarItems>
                 <mxb:ToolbarButtonItem Header="Cut" KeyTip="CT"
                                        Glyph="{x:Static icons:Basic.Cut}"
                                        HotKey="Ctrl+V"
@@ -60,7 +60,7 @@
                     </mxb:ToolbarEditorItem.EditorProperties>
                 </mxb:ToolbarEditorItem>
             </mxr:RibbonControl.PageHeaderItems>
-            <mxr:RibbonPage Header="Home" KeyTip="M">
+            <mxr:RibbonPage Header="Home" >
                 <mxr:RibbonPageGroup Header="File" IsHeaderButtonVisible="True">
                     <mxb:ToolbarButtonItem Header="New" KeyTip="N" Glyph="{x:Static icons:Basic.Docs_Add}"
                                            mxr:RibbonControl.DisplayMode="Large"
@@ -291,7 +291,7 @@
                     <mxb:ToolbarButtonItem Header="Send Message" KeyTip="SM" Glyph="{x:Static icons:Basic.Horizontal_Doc_Text}"
                                            mxr:RibbonControl.DisplayMode="Large" />
                 </mxr:RibbonPageGroup>
-            </mxr:RibbonPage>
+            </mxr:RibbonPage>-->
         </mxr:RibbonControl>
     </mxb:ToolbarManager>
 </UserControl>
